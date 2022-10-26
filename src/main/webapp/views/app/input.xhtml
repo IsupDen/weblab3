@@ -1,0 +1,81 @@
+<ui:composition
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+
+   <h:outputScript name="js/commandLinkHandler.js"/>
+   <h:outputScript name="js/graphHandler.js"/>
+
+   <h:form id="input-form">
+      <div class="inputs">
+         <p:messages/>
+         <p:remoteCommand name="setTimeZone" action="#{hitStorage.setTimeZone()}"/>
+         <h:outputScript>
+            window.onload = function () {
+                setTimeZone([{name: 'timeZone', value: (new Date()).getTimezoneOffset()}])
+            }
+         </h:outputScript>
+         <div class="x-input">
+            <h:outputLabel for="X" value="X: "/>
+            <p:inputNumber onchange="changeCoord()"
+                           onkeyup="changeCoord()"
+                           id="X"
+                           value="#{hitStorage.curHit.coord.x}"
+                           maxValue="5"
+                           minValue="-3"
+                           required="true"
+                           decimalPlaces="2"
+                           converterMessage="X: wrong number"
+                           validatorMessage="X should be in [-3;5]"
+                           requiredMessage="X can not be empty"
+                           decimalSeparatorAlternative="."/>
+         </div>
+         <div class="y-input">
+            <h:outputLabel for="Y" value="Y: "/>
+            <p:inputNumber type="hidden"
+                           onchange="changeCoord()"
+                           onkeyup="changeCoord()"
+                           minValue="-4"
+                           maxValue="4"
+                           id="Y"
+                           required="true"
+                           value="#{hitStorage.curHit.coord.y}"/>
+            <p:commandLink shape="square" value="-4" onclick="setY(this)"/>
+            <p:commandLink shape="square" value="-3" onclick="setY(this)"/>
+            <p:commandLink shape="square" value="-2" onclick="setY(this)"/>
+            <p:commandLink shape="square" value="-1" onclick="setY(this)"/>
+            <p:commandLink shape="square" styleClass="selected" value=" 0 " onclick="setY(this)"/>
+            <p:commandLink shape="square" value=" 1 " onclick="setY(this)"/>
+            <p:commandLink shape="square" value=" 2 " onclick="setY(this)"/>
+            <p:commandLink shape="square" value=" 3 " onclick="setY(this)"/>
+            <p:commandLink shape="square" value=" 4 " onclick="setY(this)"/>
+         </div>
+         <p:remoteCommand update="R" name="setR" action="#{hitStorage.setR()}"/>
+         <div class="r-input">
+            <h:outputLabel for="R" value="R: "/>
+            <p:inputNumber onchange="onChangeR()"
+                           onkeyup="onEditR()"
+                           id="R"
+                           value="#{hitStorage.curHit.coord.r}"
+                           maxValue="4"
+                           minValue="1"
+                           required="true"
+                           decimalPlaces="2"
+                           converterMessage="R: wrong number"
+                           validatorMessage="R should be in [1;4]"
+                           requiredMessage="R can not be empty"
+                           decimalSeparatorAlternative="."/>
+         </div>
+         <div class="div-buttons">
+            <p:commandLink update="results @form panel-graph" action="#{hitStorage.submitForm()}">
+               <em style="--clr:#1e9bff" class="my-button">
+                  <span>SUBMIT</span>
+               </em>
+            </p:commandLink>
+         </div>
+      </div>
+   </h:form>
+</ui:composition>

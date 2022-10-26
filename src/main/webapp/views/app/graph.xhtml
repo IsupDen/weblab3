@@ -1,0 +1,37 @@
+<ui:composition
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+        xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <h:outputScript>
+        let point;
+    </h:outputScript>
+    <h:panelGroup id="panel-graph">
+        <h:outputScript name="js/drawer.js"/>
+        <p:remoteCommand update="results panel-graph" immediate="true" name="clickGraph" action="#{hitStorage.submitGraph()}"/>
+        <ui:include src="../../resources/img/graph.svg"/>
+        <h:outputScript>
+            function getCoordinates(event) {
+                let coordinates = {};
+                coordinates.x = ((event.offsetX - 150) / 30).toFixed(3);
+                coordinates.y = ((150 - event.offsetY) / 30).toFixed(3);
+                coordinates.r = document.getElementById('input-form:R').value;
+                return coordinates;
+            }
+            document.getElementById('svg-graph').addEventListener('click', function (event) {
+
+                let coords = getCoordinates(event);
+                clickGraph([{name: 'x', value: coords.x}, {name: 'y', value: coords.y}]);
+            })
+            changeR(#{hitStorage.curHit.coord.r})
+            changeCoord();
+            <c:forEach var="hit" items="#{hitStorage.savedHits}">
+                drawHit(#{hit.coord.x}, #{hit.coord.y}, #{hit.result});
+            </c:forEach>
+        </h:outputScript>
+    </h:panelGroup>
+
+</ui:composition>

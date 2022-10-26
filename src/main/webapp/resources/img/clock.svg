@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1"
+     width="300"
+     height="300"
+     id="analog-svg"
+     xmlns="http://www.w3.org/2000/svg">
+    <circle cx="150" cy="150" r="150" fill="white" stroke="gray"/>
+    <line x1="150" x2="150" y1="5" y2="20" stroke="#28272a" stroke-width="2"/>
+    <line x1="150" x2="150" y1="295" y2="280" stroke="#28272a" stroke-width="2"/>
+    <line x1="5" x2="20" y1="150" y2="150" stroke="#28272a" stroke-width="2"/>
+    <line x1="295" x2="280" y1="150" y2="150" stroke="#28272a" stroke-width="2"/>
+    <line x1="222.5" x2="215" y1="24.4" y2="37.4" stroke="#28272a" stroke-width="2"/>
+    <line x1="275.6" x2="262.6" y1="77.5" y2="85" stroke="#28272a" stroke-width="2"/>
+    <line x1="222.5" x2="215" y1="275.6" y2="262.6" stroke="#28272a" stroke-width="2"/>
+    <line x1="275.6" x2="262.6" y1="222.5" y2="215" stroke="#28272a" stroke-width="2"/>
+    <line x1="77.5" x2="85" y1="24.4" y2="37.4" stroke="#28272a" stroke-width="2"/>
+    <line x1="24.4" x2="37.4" y1="77.5" y2="85" stroke="#28272a" stroke-width="2"/>
+    <line x1="77.5" x2="85" y1="275.6" y2="262.6" stroke="#28272a" stroke-width="2"/>
+    <line x1="24.4" x2="37.4" y1="222.5" y2="215" stroke="#28272a" stroke-width="2"/>
+    <line id="second" x1="150" x2="150" y1="150" y2="25" stroke="#28272a" stroke-width="4"/>
+    <line id="minute" x1="150" x2="150" y1="150" y2="40" stroke="#28272a" stroke-width="7"/>
+    <line id="hour" x1="150" x2="150" y1="150" y2="60" stroke="#28272a" stroke-width="10"/>
+
+    <circle cx="150" cy="150" r="8" fill="#ff1867"/>
+</svg>

@@ -1,0 +1,182 @@
+body
+{
+    background: #28272a;
+}
+.header
+{
+    color: #fff;
+    font-weight: 100;
+    font-family: fantasy;
+    font-size: 1.5em;
+    letter-spacing: 0.1em;
+}
+
+#results {
+    min-width: 800px;
+    width: 70%;
+    box-shadow: 0 0 10px #1e9bff;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+}
+#results thead tr
+{
+    background: #1e9bff;
+    color: #fff;
+    text-align: left;
+    font-weight: bold;
+}
+#results thead th
+{
+    width: var(--wdt);
+}
+#results tbody tr
+{
+    color: #fff;
+    text-align: left;
+}
+#results td, #results tr, #results th
+{
+    padding: 12px 15px;
+}
+#results tbody tr:nth-of-type(even)
+{
+    background: #164b72;
+}
+#results tbody tr:nth-of-type(even):hover
+{
+    background: #1d5e91;
+    font-weight: bold;
+}
+#results tbody tr:nth-of-type(odd):hover
+{
+    background: #353438;
+    font-weight: bold;
+}
+
+.td {
+    width: 50%;
+}
+
+#analog-svg {
+    margin: 0 auto;
+    display: table;
+}
+#date {
+    font-size: large;
+    display: table;
+    margin: 0 auto;
+    background: transparent;
+    color: white;
+    padding: 1rem;
+}
+
+.header {
+    width: 100%;
+    margin-top: 0;
+}
+.clock {
+    width: 50%;
+}
+.left, .clock {
+    height: 100%;
+    display: inline-block;
+}
+.left {
+    width: 40%;
+}
+.main {
+    margin-top: 10%;
+    width: 60%;
+    height: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.my-button
+{
+    margin: 10px;
+    background: #444;
+    color: #fff;
+    border-width: 0;
+    position: relative;
+    text-transform: uppercase;
+    font-size: 1.5em;
+    letter-spacing: 0.1em;
+    font-weight: 400;
+    padding: 10px 30px;
+    transition: 0.5s;
+    cursor: pointer;
+}
+.my-button:hover
+{
+    letter-spacing: 0.25em;
+    background: var(--clr);
+    color: var(--clr);
+    box-shadow: 0 0 35px var(--clr);
+}
+.my-button::before
+{
+    content: '';
+    position: absolute;
+    inset: 2px;
+    background: #28272a;
+}
+.my-button span
+{
+    position: relative;
+    z-index: 1;
+    text-decoration: none;
+}
+
+.div-buttons a
+{
+    text-decoration: none !important;
+    color: white;
+}
+
+.div-buttons {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.y-input a {
+    background: #1d5e91;
+    padding: 5px;
+    margin: 5px;
+    color: white;
+    text-decoration: none !important;
+}
+
+.selected {
+    background: #1e9bff !important;
+}
+
+.y-input {
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+label {
+    color: white;
+}
+
+.div-form, .div-graph {
+    display: inline-block;
+    height: 400px;
+}
+
+.div-form {
+    height: 200px;
+}
+
+.div-table {
+    width: auto;
+    max-width: 800px;
+    white-space: nowrap;
+    overflow-x: scroll;
+}
+
+
+
+
+

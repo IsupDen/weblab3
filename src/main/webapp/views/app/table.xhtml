@@ -1,0 +1,45 @@
+<ui:composition
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:p="http://primefaces.org/ui">
+   <div class="div-buttons">
+      <p:commandLink update="results panel-graph" action="#{hitStorage.clear()}">
+         <em style="--clr:#1e9bff" class="my-button">
+            <span>CLEAR</span>
+         </em>
+      </p:commandLink>
+      <h:link outcome="back">
+         <em style="--clr:#1e9bff" class="my-button">
+            <span>BACK</span>
+         </em>
+      </h:link>
+   </div>
+   <h:dataTable id="results" value="${hitStorage.savedHits}" var="hit">
+      <h:column>
+         <f:facet name="header">X</f:facet>
+         ${hit.coord.x}
+      </h:column>
+      <h:column>
+         <f:facet name="header">Y</f:facet>
+         ${hit.coord.y}
+      </h:column>
+      <h:column>
+         <f:facet name="header">R</f:facet>
+         ${hit.coord.r}
+      </h:column>
+      <h:column>
+         <f:facet name="header">Current Time</f:facet>
+         ${hit.time.currentTime}
+      </h:column>
+      <h:column>
+         <f:facet name="header">Execution Time (mcs)</f:facet>
+         ${hit.time.executionTime}
+      </h:column>
+      <h:column>
+         <f:facet name="header">Result</f:facet>
+         ${hit.result}
+      </h:column>
+   </h:dataTable>
+</ui:composition>
